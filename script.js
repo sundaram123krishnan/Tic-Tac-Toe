@@ -1,5 +1,5 @@
-let val = document.getElementsByTagName("button")
-val = Array.from(val)
+let boardButtons = document.getElementsByTagName("button")
+boardButtons = Array.from(boardButtons)
 function listToMatrix(list, elementsPerSubArray) {
     var matrix = [], i, k;
 
@@ -12,50 +12,49 @@ function listToMatrix(list, elementsPerSubArray) {
     }
     return matrix;
 }
-val = listToMatrix(val, 3)
-let num = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-let cnt = 0;
-cnt = Number.parseInt(cnt)
-let row = []
-let col = []
-let row1 = []
-let col1 = []
-for (let i = 0; i < val.length; i++) {
-    for (let j = 0; j < val.length; j++) {
-        val[i][j].onclick = () => {
-            if (cnt % 2 == 0) {
-                val[i][j].innerHTML = "x"
-                cnt++;
-                row.push(i)
-                col.push(j)
+boardButtons = listToMatrix(boardButtons, 3)
+let turn = 0;
+turn = Number.parseInt(turn)
+let xPerRow = []  
+let xPerCol = []
+let oPerRow = []
+let oPerCol = []
+for (let i = 0; i < boardButtons.length; i++) {
+    for (let j = 0; j < boardButtons.length; j++) {
+        boardButtons[i][j].onclick = () => {
+            if (turn % 2 == 0) {
+                boardButtons[i][j].innerHTML = "x"
+                turn++;
+                xPerRow.push(i)
+                xPerCol.push(j)
             }
             else {
-                val[i][j].innerHTML = 'o'
-                cnt++;
-                row1.push(i)
-                col1.push(j)
+                boardButtons[i][j].innerHTML = 'o'
+                turn++;
+                oPerRow.push(i)
+                oPerCol.push(j)
             }
-            for (let i = 0; i < row.length - 2; i++) {
-                if (row[i] == row[i + 1] && row[i + 1] == row[i + 2] && row[i] == row[i + 2]) {
+            for (let i = 0; i < xPerRow.length - 2; i++) {
+                if (xPerRow[i] == xPerRow[i + 1] && xPerRow[i + 1] == xPerRow[i + 2] && xPerRow[i] == xPerRow[i + 2]) {
                     let won = document.getElementById("winner")
                     won.innerHTML = "X-won"
                     location.reload()
                 }
             }
-            for (let i = 0; i < row1.length - 2; i++) {
-                if (row1[i] == row1[i + 1] && row1[i + 1] == row1[i + 2] && row1[i] == row1[i + 2]) {
+            for (let i = 0; i < oPerRow.length - 2; i++) {
+                if (oPerRow[i] == oPerRow[i + 1] && oPerRow[i + 1] == oPerRow[i + 2] && oPerRow[i] == oPerRow[i + 2]) {
                     let won = document.getElementsByTagName("h2")[0]
                     won.innerHTML = "o-won"
                 }
             }
-            for (let i = 0; i < col.length - 2; i++) {
-                if (col[i] == col[i + 1] && col[i + 1] == col[i + 2] && col[i] == col[i + 2] && col[i] == col[i + 2]) {
+            for (let i = 0; i < xPerCol.length - 2; i++) {
+                if (xPerCol[i] == xPerCol[i + 1] && xPerCol[i + 1] == xPerCol[i + 2] && xPerCol[i] == xPerCol[i + 2] && xPerCol[i] == xPerCol[i + 2]) {
                     let won = document.getElementsByTagName("h2")[0]
                     won.innerHTML = "X-won"
                 }
             }
-            for (let i = 0; i < col1.length - 2; i++) {
-                if (col1[i] == col1[i + 1] && col1[i + 1] == col1[i + 2] && col1[i] == col1[i + 2]) {
+            for (let i = 0; i < oPerCol.length - 2; i++) {
+                if (oPerCol[i] == oPerCol[i + 1] && oPerCol[i + 1] == oPerCol[i + 2] && oPerCol[i] == oPerCol[i + 2]) {
                     let won = document.getElementsByTagName("h2")[0]
                     won.innerHTML = "o-won"
                 }
@@ -63,4 +62,4 @@ for (let i = 0; i < val.length; i++) {
         }
     }
 }
-console.log(row, col, row1, col1)
+console.log(xPerRow, xPerCol, oPerRow, oPerCol)
