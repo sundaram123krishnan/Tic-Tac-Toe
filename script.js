@@ -120,6 +120,7 @@ for (let i = 0; i < boardButtons.length; i++) {
 
       let reverseDiagonalRow = [0, 1, 2];
       let reverseDiagonalCol = [2, 1, 0];
+      let num = 0;
       if (
         equalsCheck(xPerRow, reverseDiagonalRow) &&
         equalsCheck(xPerCol, reverseDiagonalCol)
