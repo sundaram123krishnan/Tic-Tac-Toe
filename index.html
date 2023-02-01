@@ -8,17 +8,22 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <div class="flex list-none bg-black p-12 text-2xl capitalize text-white">
+      <li class="cursor-pointer">TicTacToe.com</li>
+    </div>
+    <img src="./x.png" alt="" class="hidden" />
+    <img src="./o.png" alt="" class="hidden" />
     <div class="flex justify-center items-center">
-      <div class="grid grid-cols-3 m-auto w-72 mt-96 h-80">
-        <button class="w-full h-full border-r-2"></button>
-        <button class="w-full h-full border-r-2"></button>
-        <button class="w-full h-full border-2-r-2"></button>
-        <button class="w-full h-full border-t-2 border-b-2"></button>
-        <button class="w-full h-full border-2"></button>
-        <button class="w-full h-full border-t-2 border-b-2"></button>
-        <button class="w-full h-full border-r-2"></button>
-        <button class="w-full h-full"></button>
-        <button class="w-full h-full border-l-2"></button>
+      <div class="grid grid-cols-3 m-auto w-96 mt-40 h-full">
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-4ll border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
+        <button class="w-54 h-40 border-8 border-black"></button>
       </div>
     </div>
     <h2 id="winner"></h2>

@@ -25,117 +25,124 @@ for (let i = 0; i < boardButtons.length; i++) {
   for (let j = 0; j < boardButtons.length; j++) {
     boardButtons[i][j].onclick = () => {
       if (turn % 2 == 0) {
-        boardButtons[i][j].innerHTML = "x";
+        let img = document.createElement("img");
+        img.src = "./x-removebg-preview.png";
+        let src = boardButtons[i][j];
+        src.appendChild(img);
         turn++;
         xPerRow.push(i);
         xPerCol.push(j);
       } else {
-        boardButtons[i][j].innerHTML = "o";
+        let img = document.createElement("img");
+        img.src = "./o-removebg-preview.png";
+        let src = boardButtons[i][j];
+        src.appendChild(img);
         turn++;
         oPerRow.push(i);
         oPerCol.push(j);
       }
-      for (let i = 0; i < xPerRow.length - 2; i++) {
-        if (
-          xPerRow[i] == xPerRow[i + 1] &&
-          xPerRow[i + 1] == xPerRow[i + 2] &&
-          xPerRow[i] == xPerRow[i + 2]
-        ) {
-          let won = document.getElementById("winner");
-          won.innerHTML = "X-won";
-          location.reload();
+      let rowCntX0 = 0;
+      let rowCntX1 = 0;
+      let rowCntX2 = 0;
+      let colCntX0 = 0;
+      let colCntX1 = 0;
+      let colCntX2 = 0;
+      for (let i = 0; i < xPerRow.length; i++) {
+        if (xPerRow[i] == 0) {
+          rowCntX0++;
+        } else if (xPerRow[i] == 1) {
+          rowCntX1++;
+        } else if (xPerRow[i] == 2) {
+          rowCntX2++;
         }
       }
-      for (let i = 0; i < oPerRow.length - 2; i++) {
-        if (
-          oPerRow[i] == oPerRow[i + 1] &&
-          oPerRow[i + 1] == oPerRow[i + 2] &&
-          oPerRow[i] == oPerRow[i + 2]
-        ) {
-          let won = document.getElementsByTagName("h2")[0];
-          won.innerHTML = "o-won";
+      for (let i = 0; i < xPerCol.length; i++) {
+        if (xPerCol[i] == 0) {
+          colCntX0++;
+        } else if (xPerCol[i] == 1) {
+          colCntX1++;
+        } else if (xPerCol[i] == 2) {
+          colCntX2++;
         }
       }
-      for (let i = 0; i < xPerCol.length - 2; i++) {
-        if (
-          xPerCol[i] == xPerCol[i + 1] &&
-          xPerCol[i + 1] == xPerCol[i + 2] &&
-          xPerCol[i] == xPerCol[i + 2] &&
-          xPerCol[i] == xPerCol[i + 2]
-        ) {
-          let won = document.getElementsByTagName("h2")[0];
-          won.innerHTML = "X-won";
-        }
-      }
-      for (let i = 0; i < oPerCol.length - 2; i++) {
-        if (
-          oPerCol[i] == oPerCol[i + 1] &&
-          oPerCol[i + 1] == oPerCol[i + 2] &&
-          oPerCol[i] == oPerCol[i + 2]
-        ) {
-          let won = document.getElementsByTagName("h2")[0];
-          won.innerHTML = "o-won";
-        }
-      }
-      const equalsCheck = (a, b) => {
-        return JSON.stringify(a) === JSON.stringify(b);
-      };
-      let fwdDiagonalRow = [0, 1, 2];
-      let fwdDiagonalCol = [0, 1, 2];
-      // for (let i = 0; i < oPerRow.length - 2; i++) {
-      //   if (oPerRow[i] == oPerCol[i]) {
-      //     let won = document.getElementsByTagName("h2")[0];
-      //     won.innerHTML = "o-won";
-      //   }
-      // }
-      console.log(xPerCol, xPerRow);
-      if (
-        xPerRow[0] == 0 &&
-        xPerRow[1] == 1 &&
-        xPerRow[2] == 2 &&
-        xPerCol[0] == 0 &&
-        xPerCol[1] == 1 &&
-        xPerCol[2] == 2
-      ) {
+      if (rowCntX0 == 3 || colCntX0 == 3) {
         let won = document.getElementsByTagName("h2")[0];
         won.innerHTML = "x-won";
+        console.log(rowCntX0, colCntX0);
+        // location.reload();
       }
-      if (
-        oPerRow[0] == 0 &&
-        oPerRow[1] == 1 &&
-        oPerRow[2] == 2 &&
-        oPerCol[0] == 0 &&
-        oPerCol[1] == 1 &&
-        oPerCol[2] == 2
-      ) {
+      if (rowCntX1 == 3 || colCntX1 == 3) {
+        let won = document.getElementsByTagName("h2")[0];
+        won.innerHTML = "x-won";
+        console.log(rowCntX0, colCntX0);
+        // location.reload();
+      }
+      if (rowCntX2 == 3 || colCntX2 == 3) {
+        let won = document.getElementsByTagName("h2")[0];
+        won.innerHTML = "x-won";
+        console.log(rowCntX0, colCntX0);
+        // location.reload();
+      }
+      // if (colCntX0 == 3 || colCntX1 == 3 || colCntX2 == 3) {
+      //   let won = document.getElementsByTagName("h2")[0];
+      //   won.innerHTML = "x-won";
+      //   // location.reload();
+      // }
+      let rowCntO0 = 0;
+      let rowCntO1 = 0;
+      let rowCntO2 = 0;
+      let colCntO0 = 0;
+      let colCntO1 = 0;
+      let colCntO2 = 0;
+      for (let i = 0; i < oPerRow.length; i++) {
+        if (oPerRow[i] == 0) {
+          rowCntO0++;
+        } else if (oPerRow[i] == 1) {
+          rowCntO1++;
+        } else if (oPerRow[i] == 2) {
+          rowCntO2++;
+        }
+      }
+      if (rowCntO0 == 3 || rowCntO1 == 3 || rowCntO2 == 3) {
         let won = document.getElementsByTagName("h2")[0];
         won.innerHTML = "o-won";
+        // location.reload();
       }
-      // for (let i = 0; i < xPerRow.length - 2; i++) {
-      //   if (xPerRow[i] == xPerCol[i]) {
-      //     let won = document.getElementsByTagName("h2")[0];
-      //     won.innerHTML = "x-won";
-      //   }
-      // }
-
-      let reverseDiagonalRow = [0, 1, 2];
-      let reverseDiagonalCol = [2, 1, 0];
-      let num = 0;
-      if (
-        equalsCheck(xPerRow, reverseDiagonalRow) &&
-        equalsCheck(xPerCol, reverseDiagonalCol)
-      ) {
+      for (let i = 0; i < oPerCol.length; i++) {
+        if (oPerCol[i] == 0) {
+          colCntO0++;
+        } else if (oPerCol[i] == 1) {
+          colCntO1++;
+        } else if (oPerCol[i] == 2) {
+          colCntO2++;
+        }
+      }
+      if (colCntO0 == 3 || colCntO1 == 3 || colCntO2 == 3) {
+        let won = document.getElementsByTagName("h2")[0];
+        won.innerHTML = "o-won";
+        // location.reload();
+      }
+      let count_Diagonal_x = 0;
+      for (let i = 0; i < xPerCol.length; i++) {
+        if (xPerCol[i] == xPerRow[i]) {
+          count_Diagonal_x++;
+        }
+      }
+      if(count_Diagonal_x==3){
         let won = document.getElementsByTagName("h2")[0];
         won.innerHTML = "x-won";
       }
-      if (
-        equalsCheck(oPerRow, reverseDiagonalRow) &&
-        equalsCheck(oPerCol, reverseDiagonalCol)
-      ) {
+      let count_Diagonal_o = 0;
+      for (let i = 0; i < oPerCol.length; i++) {
+        if (xPerCol[i] == xPerRow[i]) {
+          count_Diagonal_o++;
+        }
+      }
+      if(count_Diagonal_o==3){
         let won = document.getElementsByTagName("h2")[0];
         won.innerHTML = "o-won";
       }
     };
   }
 }
-console.log(xPerRow, xPerCol, oPerRow, oPerCol);
+
