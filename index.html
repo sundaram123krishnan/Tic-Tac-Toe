@@ -11,22 +11,38 @@
     <div class="flex list-none bg-black p-12 text-2xl capitalize text-white">
       <li class="cursor-pointer">TicTacToe.com</li>
     </div>
-    <img src="./x.png" alt="" class="hidden" />
-    <img src="./o.png" alt="" class="hidden" />
-    <div class="flex justify-center items-center">
-      <div class="grid grid-cols-3 m-auto w-96 mt-40 h-full">
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-4ll border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
-        <button class="w-54 h-40 border-8 border-black"></button>
+    <div class="flex justify-center items-center mt-4">
+      <h1 class="text-4xl uppercase text-red-900" id="winner"></h1>
+    </div>
+    <div class="flex justify-center items-center flex-col">
+      <div class="grid grid-cols-3 m-auto w-96 mt-20 h-full" id="grid">
+        <button
+          class="w-54 h-40 border-8 border-black border-l-white border-t-white text-9xl"
+        ></button>
+        <button
+          class="w-54 h-40 border-8 border-black border-t-white text-9xl"
+        ></button>
+        <button
+          class="w-54 h-4ll border-8 border-black border-t-white border-r-white text-9xl"
+        ></button>
+        <button
+          class="w-54 h-40 border-8 border-black border-l-white text-9xl"
+        ></button>
+        <button class="w-54 h-40 border-8 border-black text-9xl"></button>
+        <button
+          class="w-54 h-40 border-8 border-black border-r-white text-9xl"
+        ></button>
+        <button
+          class="w-54 h-40 border-8 border-black border-l-white border-b-white text-9xl"
+        ></button>
+        <button
+          class="w-54 h-40 border-8 border-black border-b-white text-9xl"
+        ></button>
+        <button
+          class="w-54 h-40 border-8 border-black border-b-white border-r-white text-9xl"
+        ></button>
       </div>
     </div>
-    <h2 id="winner"></h2>
     <script src="script.js"></script>
   </body>
 </html>
